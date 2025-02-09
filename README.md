@@ -31,20 +31,22 @@ usually its http://localhost:1880   or http://serverip:1880
 --- to run a without persistence or systemd use the above.
 
 to add node-red as a service - 
-sudo nano /etc/systemd/system/node-red.service
+
+    sudo nano /etc/systemd/system/node-red.service
 
 add the following content:
-[Unit]
-Description=Node-RED
-After=network.target
 
-[Service]
-ExecStart=/usr/bin/node-red
-Restart=on-failure
-KillSignal=SIGINT
+    [Unit]
+    Description=Node-RED
+    After=network.target
 
-[Install]
-WantedBy=multi-user.target
+    [Service]
+    ExecStart=/usr/bin/node-red
+    Restart=on-failure
+    KillSignal=SIGINT
+
+    [Install]
+    WantedBy=multi-user.target
 
 
 --------- save the file
@@ -55,3 +57,6 @@ sudo systemctl daemon-reload
 sudo systemctl start node-red
 sudo systemctl enable node-red
 
+
+--------- you have the option to add encrypted communications for your install
+        find the required node.js settings
