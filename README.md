@@ -3,15 +3,18 @@
 Utilizing the ESP32_8266 microcontroller, the goal is to monitor environmentals (temp, humidity) for v1 of project
 REQ: Node_RED and MQTT are installed.  
 
-find Node JS version.. in my case im using v20    
+find Node JS version.. in my case im using v20
+
     terminal:  sudo apt-get install -y nodejs build-essential
 
 Confirmed with command:
+
     terminal: nodejs --version
     terminal: nodejs -v    (works also) 
 
 Node-RED will need to be installed Globally, makes it easier to access and run Node.js
 run the following cmd   
+
     Terminal: sudo npm install -g --unsafe-pem node-red
 
     -g is global
@@ -20,13 +23,15 @@ run the following cmd
     
 -- if you get any errors, try cmd with "sudo"
 
-to run Node-Red 
-Terminal: node-red
+to run Node-Red:
+
+    Terminal: node-red
 
 Accessing Node-Red:
-usually its http://localhost:1880   or http://serverip:1880
+usually its 
+    http://localhost:1880   or http://serverip:1880
 
-         if you have firewall ... disable it or set an allow rule for port 1880
+    if you have firewall ... disable it or set an allow rule for port 1880
 
 --- to run a without persistence or systemd use the above.
 
