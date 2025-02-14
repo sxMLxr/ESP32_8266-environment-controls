@@ -1,7 +1,7 @@
 # ESP32_8266-environment-controls
 
 Utilizing the ESP32_8266 microcontroller, the goal is to monitor environmentals (temp, humidity) for v1 of project
-REQ: Node_RED and MQTT are installed.  
+REQ: Node_RED and MQTT fresh install (skip if you already have this).  
 
 find Node JS version.. in my case im using v20
 
@@ -56,12 +56,14 @@ add the following content:
 
 --------- save the file
 then run in terminal:
-sudo systemctl daemon-reload
+
+    sudo systemctl daemon-reload
 
 --------- start node-red and enable on boot
-sudo systemctl start node-red
-sudo systemctl enable node-red
+
+    sudo systemctl start node-red
+    sudo systemctl enable node-red
 
 
 --------- you have the option to add encrypted communications for your install
-        find the required node.js settings
+    Find the required node.js settings, for this application we will not set that up.
