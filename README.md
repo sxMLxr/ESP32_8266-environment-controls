@@ -1,7 +1,8 @@
 # ESP32_8266-environment-controls
 
 Utilizing the ESP32_8266 microcontroller, the goal is to monitor environmentals (temp, humidity) for v1 of project
-REQ: Node_RED and MQTT fresh install (skip if you already have this).  
+
+    REQ: Node_RED and MQTT fresh install (skip if you already have this).  
 
 find Node JS version.. in my case im using v20
 
