@@ -13,7 +13,7 @@ My current setup is using:
 
 Attaching ESP32_8266
     Attach usb cable to your esp32_8266 device
-    Assuming your familiar with Adruino or vscode, enable your drivers for 
+    Assuming your familiar with Adruino or vscode, enable your drivers for your project 
     -Adafruit_ESP drivers
     -DHT drivers
     -WIFI.h or WifiManager.h
