@@ -1,6 +1,15 @@
 SETUP UP ESP32_266 to read the sensors
     If you require a full tutorial on ESP32 setup via VSCODE or Arduino i would recommend youtube for a quick learners path
 
+My current setup is using:
+    DHT-11 (humidity and temp), 
+    MQ-2 (checks for lp gas), 
+    a 4K resistor, 
+    a 1k resistor and 
+    a single LED
+
+--- see "Wiring Diagram" for exact setup.
+
 
 Attaching ESP32_8266
     Attach usb cable to your esp32_8266 device
