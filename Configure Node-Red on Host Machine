@@ -1,0 +1,6 @@
+Configuring Node-Red to receive messages from ESP32, this is an entire new topic in itself.
+  TODO:  write up for this project
+  1.
+  TODO:  create a simple light on/off switch.
+  2.
+  TODO:  Modify Project to include messaging for TEMP and Humidity Sensors.
