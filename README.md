@@ -1,4 +1,5 @@
-Quite a simple Project I'd like to share.  
+Sharing a small build I did of a simple ESP32_8266 Project:
+    
     Using my ESP32_8266, some sensors and getting some readings.
 
 ![1739329784317](https://github.com/user-attachments/assets/919c1281-5a20-4b43-9961-93c88aa79e0b)
