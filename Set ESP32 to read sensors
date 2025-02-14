@@ -1,0 +1,94 @@
+SETUP UP ESP32_266 to read the sensors
+    If you require a full tutorial on ESP32 setup via VSCODE or Arduino i would recommend youtube for a quick learners path
+
+
+Attaching ESP32_8266
+    Attach usb cable to your esp32_8266 device
+    Assuming your familiar with Adruino or vscode, enable your drivers for 
+    -Adafruit_ESP drivers
+    -DHT drivers
+    -WIFI.h or WifiManager.h
+
+THE CODE IS Below:
+    
+    #include <Arduino.h>
+    #include <Adafruit_Sensor.h>
+    #include <DHT.h>
+    #include <DHT_U.h>
+    #include <WiFiManager.h>
+    
+    #define DHTPIN 2       // pin 2 = GPIO2 = D4
+    #define DHTTYPE DHT11  //DHT11
+    
+    #define MQ5PIN_1 14     //14 = GPIO14 = D5
+    #define MQ5TYPE MQ5  //MQ5
+    
+    
+    DHT_Unified dht(DHTPIN, DHTTYPE);
+    uint32_t delayMS;
+    
+    float gassensor = 14; 
+    float gas_value;
+    
+    void setup() {
+      dht.begin();
+      
+      sensor_t sensor;
+      dht.temperature().getSensor(&sensor);
+      dht.humidity().getSensor(&sensor);
+      delayMS = sensor.min_delay / 1000;
+    
+    
+      // put your setup code here, to run once:
+      pinMode(5, OUTPUT);
+      // pin 5 = GPIO5 = D1
+    
+      pinMode(14, INPUT); // MQ5, read analog output
+    
+      Serial.begin(115200);
+      Serial.println("MQ5 Heating Up");
+      delay(20000);
+    }
+    
+    void loop() {
+      // put your main code here, to run repeatedly:
+    
+      delay(1000);
+      digitalWrite(5, HIGH);
+      Serial.println(" ");
+      Serial.println("Current Readings: ");
+      delay(1000);
+      digitalWrite(5, LOW);
+    
+       // Delay between measurements.
+      delay(delayMS);
+    
+      Serial.print(F("LP Gas Level: "));
+      gas_value = analogRead(gassensor); // MQ5 Gas Reading
+      Serial.println(gas_value);      //Print values
+    
+      
+      // Get temperature event and print its value.
+      sensors_event_t event;
+      dht.temperature().getEvent(&event);
+      if (isnan(event.temperature)) {
+        Serial.println(F("Error reading temperature!"));
+        }
+      else {
+        Serial.print(F("Temperature: "));
+        Serial.print(event.temperature*1.8+32);
+        Serial.println(F(" °F"));
+      }
+      // Get humidity event and print its value.
+      dht.humidity().getEvent(&event);
+      if (isnan(event.relative_humidity)) {
+        Serial.println(F("Error reading humidity!"));
+      }
+      else {
+        Serial.print(F("Humidity: "));
+        Serial.print(event.relative_humidity);
+        Serial.println(F("%"));
+      }
+    
+      Serial.println(" ");
+    }
